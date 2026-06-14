@@ -112,6 +112,6 @@ The application will launch in your browser at `http://localhost:8501`.
 
 <div align="center">
 
-*Built for the Devfolio Hackathon 2025. Made to save lives.*
+*Built for the Devfolio Hackathon 2026. Made to save lives.*
 
 </div>
