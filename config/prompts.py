@@ -22,11 +22,15 @@ Provide a comprehensive health assessment including:
    - Check for swelling, discharge, or abnormal appearance
    - Score based on inflammation signs
 
-5. **Additional Findings**:
+5. **Image Validation**:
+   - Determine if the uploaded image actually contains a human eye.
+   - Set "is_eye" to true or false.
+
+6. **Additional Findings**:
    - Visible abnormalities
    - General eye health observations
 
-6. **Recommendations**:
+7. **Recommendations**:
    - Dietary suggestions based on findings
    - Lifestyle recommendations
    - Whether to consult a doctor immediately
@@ -41,6 +45,7 @@ Return your analysis in this EXACT JSON format. Replace the sample values with y
   "redness_explanation": "Mild redness in the peripheral vessels.",
   "inflammation_score": 10,
   "inflammation_explanation": "No signs of swelling or discharge.",
+  "is_eye": true,
   "overall_health": "good",
   "additional_findings": "The eye appears generally healthy.",
   "dietary_suggestions": ["Eat vitamin A rich foods", "Stay hydrated"],
@@ -51,9 +56,10 @@ Return your analysis in this EXACT JSON format. Replace the sample values with y
 
 CRITICAL RULES:
 1. You MUST output ONLY valid JSON. No markdown, no introductory text, no conversational text.
-2. If the eye is visibly bloodshot, severely red, or injected with blood vessels, you MUST set "redness_score" to a high value (>80). Do not output 0 for a visibly red eye.
-3. If the eye looks unhealthy, set "overall_health" to "poor" or "moderate".
-4. Ensure all 4 scores (anemia_score, jaundice_score, redness_score, inflammation_score) are present in your output JSON as integer values."""
+2. If the image is CLEARLY not an eye (e.g. a dog, a car, a landscape, a person's full body without clear eye focus), you MUST set "is_eye" to false.
+3. If the eye is visibly bloodshot, severely red, or injected with blood vessels, you MUST set "redness_score" to a high value (>80). Do not output 0 for a visibly red eye.
+4. If the eye looks unhealthy, set "overall_health" to "poor" or "moderate".
+5. Ensure all 4 scores (anemia_score, jaundice_score, redness_score, inflammation_score) are present in your output JSON as integer values."""
 
 SUMMARIZE_PROMPT = """Summarize the following eye health analysis results in simple layman terms that anyone can understand. Use emojis for engagement.
 

@@ -67,6 +67,7 @@ class HealthPredictor:
             analysis["redness_score"] = analysis.get("redness_score", 0)
             analysis["inflammation_score"] = analysis.get("inflammation_score", 0)
             analysis["overall_health"] = analysis.get("overall_health", "unknown")
+            analysis["is_eye"] = analysis.get("is_eye", True)
             
             # Ensure scores are within bounds
             score_fields = ["anemia_score", "jaundice_score", "redness_score", "inflammation_score"]
@@ -103,6 +104,12 @@ class HealthPredictor:
             data["overall_health"] = "poor"
         else:
             data["overall_health"] = "moderate"
+            
+        # Try to find is_eye
+        if "\"is_eye\": false" in text.lower() or "'is_eye': false" in text.lower() or "not an eye" in text.lower():
+            data["is_eye"] = False
+        else:
+            data["is_eye"] = True
             
         data["additional_findings"] = text[:200] + "..." if len(text) > 200 else text
         return data

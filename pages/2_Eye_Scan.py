@@ -198,6 +198,12 @@ def show():
                     
                     if analysis.get("error"):
                         st.warning("⚠️ AI analysis encountered an issue. Showing default recommendations.")
+                        
+                    # Check if the AI detected an actual eye
+                    if not analysis.get("is_eye", True):
+                        st.error("❌ The AI has determined that the uploaded image is NOT a human eye.")
+                        st.info("Please upload a clear, focused image of an eye (sclera and conjunctiva) to proceed with the Clinical Triage Protocol.")
+                        return
                     
                     # Classify risks
                     risks = classify_all_risks(analysis)
