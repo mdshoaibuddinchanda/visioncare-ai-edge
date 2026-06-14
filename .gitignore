@@ -1,0 +1,34 @@
+# Environment variables
+.env
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Streamlit specific
+.streamlit/
+!/.streamlit/config.toml
+streamlit.stderr.log
+streamlit.stdout.log
+
+# Database and User Data (CRITICAL PRIVACY)
+database/visioncare.db
+database/*.db
+data/uploads/*
+data/reports/*
+!data/uploads/.gitkeep
+!data/reports/.gitkeep
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Virtual Environments
+venv/
+env/
+.env/
+.venv/

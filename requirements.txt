@@ -1,0 +1,35 @@
+# VisionCare AI - Dependencies
+# Install: pip install -r requirements.txt
+
+# Web Framework
+streamlit>=1.28.0
+
+# Google AI
+google-generativeai>=0.3.0
+
+# Image Processing
+opencv-python>=4.8.0
+pillow>=10.0.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Database
+# sqlite3 (built-in with Python)
+
+# PDF Generation
+reportlab>=4.0.0
+
+# Maps / Location
+# folium>=1.0.0
+# streamlit-folium>=0.15.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Charts
+matplotlib>=3.7.0
+
+# Voice (optional)
+# pywin32>=306  # Windows TTS (optional)
